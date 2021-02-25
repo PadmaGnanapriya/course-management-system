@@ -12,6 +12,7 @@ import {FooterComponent} from './layout/footer/footer.component';
 import {CoursePageComponent} from './layout/course-page/course-page.component';
 import {RouterModule, Routes} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,4 +3,12 @@
   <h1>Course Management system</h1>
   <h2>ABC Institute Kelaniya, Sri Lanka.</h2>
 
+  <div class="card" style="width: 18rem;" *ngFor="let notification of notificationList; index as num">
+    <div class="card-body">
+      <h5 class="card-title">{{notification.title}}</h5>
+      <p class="card-text">{{notification.notificationBody}}</p>
+
+    </div>
+  </div>
+
 </div>

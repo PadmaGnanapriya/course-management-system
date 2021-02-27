@@ -1,4 +1,4 @@
-export default class StudentDTO {
+export default class LecturerDTO {
   private _id: string;
   private _name: string;
   private _contact: string;

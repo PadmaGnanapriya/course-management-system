@@ -1,4 +1,4 @@
-export default class Course {
+export default class CourseDTO {
   private _id: string;
   private _lecturerId: string;
   private _referenceBook: string;

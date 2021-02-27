@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -24,5 +23,5 @@ export class SignInPageComponent implements OnInit {
     // alert(this.userEmail + ', ' + this.userPassword);
 
     this.router.navigateByUrl('/dashboard');
-  };
+  }
 }

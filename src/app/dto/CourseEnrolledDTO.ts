@@ -1,4 +1,4 @@
-export default class CourseEnrolled {
+export default class CourseEnrolledDTO {
   private _id: string;
   private _courseId: string;
   private _studentId: string;

@@ -1,4 +1,4 @@
-export default class TimeTableDTO {
+export default class TimetableDTO {
   private _id: string;
   private _date: string;
   private _time: string;

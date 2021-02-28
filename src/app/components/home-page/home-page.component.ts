@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {TimetableService} from '../../services/timetable.service';
+import {LecturerService} from '../../services/lecturer.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,20 +8,30 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  brightness: number;
-  notificationList: any;
+  timetableList: any;
+  lecturersList: any;
 
-
-  constructor() {
+  constructor(public timetableService: TimetableService, public lecturerService: LecturerService) {
   }
 
   ngOnInit(): void {
-    this.notificationList = [
-      {title: 'Notification title 1', notificationBody: 'the notification 1'},
-      {title: 'Notification title 2', notificationBody: 'the notification 2'},
-      {title: 'Notification title 3', notificationBody: 'the notification 3'},
-      {title: 'Notification title 4', notificationBody: 'the notification 4'},
-    ];
+    this.loadAllTimetable();
+  }
+
+  loadAllTimetable = () => {
+    this.timetableService.getAllTimetables().subscribe(response => {
+      this.timetableList = response;
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  loadAllLecturers = () => {
+    this.lecturerService.getAllLecturers().subscribe(response => {
+      this.lecturersList = response;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

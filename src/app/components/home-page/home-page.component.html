@@ -3,11 +3,18 @@
   <h1>Course Management system</h1>
   <h2>ABC Institute Kelaniya, Sri Lanka.</h2>
 
-  <div class="card" style="width: 18rem;" *ngFor="let notification of notificationList; index as num">
-    <div class="card-body">
-      <h5 class="card-title">{{notification.title}}</h5>
-      <p class="card-text">{{notification.notificationBody}}</p>
 
+  <h3>Time Table</h3>
+  <div class="card" style="width: 18rem;" *ngFor="let timetable of timetableList; index as num">
+    <div class="card-body">
+      <h5 class="card-title">{{timetable.id}}</h5>
+    </div>
+  </div>
+
+  <h3>Our Lecturers panel</h3>
+  <div class="card" style="width: 18rem;" *ngFor="let lecturer of lecturersList; index as num">
+    <div class="card-body">
+      <h5 class="card-title">{{lecturer.name}}</h5>
     </div>
   </div>
 

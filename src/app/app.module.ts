@@ -14,6 +14,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
     EventPageComponent,
     HeaderComponent,
     FooterComponent,
-    CoursePageComponent
+    CoursePageComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,

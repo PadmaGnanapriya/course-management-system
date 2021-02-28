@@ -47,7 +47,6 @@ export class StudentService {
   }
 
   public deleteStudent(id: string): Observable<any> {
-    return this.http.delete(this.baseUrl + `/delete-student`,
-      {headers: {id}});
+    return this.http.delete(this.baseUrl + `/delete-student/${id}`);
   }
 }

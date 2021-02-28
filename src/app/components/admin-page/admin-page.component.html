@@ -1,14 +1,17 @@
 <div>
 
   <!--  Admin page small div to represent student registration form. On click disappear-->
-  <div *ngIf="!isShowStudentRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card"
-       style="max-width: 600px" (click)="handleOnIsStudentRegistrationShow()">
-    Student Registration Form
+  <div *ngIf="!isShowStudentRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card" style="max-width: 600px">
+    <span>Student Registration Form
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsStudentRegistrationShow()"></i>
+    </span>
   </div>
 
   <div *ngIf="isShowStudentRegistration" class="align-content-center px-3 py-5 mx-auto my-4 card"
        style="max-width: 600px">
-    <h3>Student Registration     <i class="fas fa-times-circle float-right" (click)="handleOnIsStudentRegistrationShow()"></i>
+    <h3>
+      Student Registration
+      <i class="fas fa-times-circle float-right" (click)="handleOnIsStudentRegistrationShow()"></i>
     </h3>
 
     <div class="mb-3">
@@ -54,13 +57,17 @@
 
 
   <!--  Admin page small div to represent student registration form. On click disappear-->
-  <div *ngIf="!isShowLecturerRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card"
-       style="max-width: 600px" (click)="handleOnIsLecturerRegistrationShow()">
-    Lecturer Registration Form
+  <div *ngIf="!isShowLecturerRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card" style="max-width: 600px">
+    <span>Lecturer Registration Form
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsLecturerRegistrationShow()"></i>
+    </span>
   </div>
 
   <div *ngIf="isShowLecturerRegistration" class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
-    <h3>Lecturer Registration</h3>
+    <h3>
+      Lecturer Registration
+      <i class="fas fa-times-circle float-right" (click)="handleOnIsLecturerRegistrationShow()"></i>
+    </h3>
     <div class="mb-3">
       <label for="lecturer_id" class="form-label">Id</label>
       <input [(ngModel)]="lecturerId" type="text" class="form-control" id="lecturer_id"

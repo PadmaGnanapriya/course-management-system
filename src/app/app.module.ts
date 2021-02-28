@@ -13,6 +13,7 @@ import {CoursePageComponent} from './layout/course-page/course-page.component';
 import {RouterModule, Routes} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     NgbModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],

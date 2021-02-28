@@ -1,1 +1,13 @@
-<p>dashboard-page works!</p>
+<div class="dashboard-page">
+  <h1>Course Management system</h1>
+  <h2>ABC Institute Kelaniya, Sri Lanka.</h2>
+  <h2>Dashboard</h2>
+
+  <div class="card" style="width: 18rem;" *ngFor="let course of courseList; index as num">
+    <div class="card-body">
+      <h5 class="card-title">{{course.id}}</h5>
+
+    </div>
+  </div>
+
+</div>

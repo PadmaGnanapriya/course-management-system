@@ -14,7 +14,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -22,7 +22,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactPageComponent},
   {path: 'dashboard', component: DashboardPageComponent},
   {path: 'events', component: EventPageComponent},
-  {path: 'course', component: CoursePageComponent}
+  {path: 'course', component: CoursePageComponent},
+  {path: 'admin-page', component: AdminPageComponent},
 ];
 
 @NgModule({
@@ -36,7 +37,7 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     CoursePageComponent,
-    AdminPanelComponent
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

@@ -29,6 +29,8 @@ export class AdminPageComponent implements OnInit {
   studentList: any;
   isShowStudentRegistration: boolean;
   isShowLecturerRegistration: boolean;
+  isShowLecturerPanel: boolean;
+  isShowStudentPanel: boolean;
 
 
 
@@ -40,6 +42,8 @@ export class AdminPageComponent implements OnInit {
     this.loadAllStudents();
     this.isShowStudentRegistration = false;
     this.isShowLecturerRegistration = false;
+    this.isShowLecturerPanel = false;
+    this.isShowStudentPanel = false;
   }
 
   saveLecturer = () => {
@@ -150,8 +154,15 @@ export class AdminPageComponent implements OnInit {
     this.isShowStudentRegistration = !this.isShowStudentRegistration;
   }
 
-
   handleOnIsLecturerRegistrationShow = () => {
     this.isShowLecturerRegistration = !this.isShowLecturerRegistration;
+  }
+
+  handleOnIsLecturerPanelShow = () => {
+    this.isShowLecturerPanel = !this.isShowLecturerPanel;
+  }
+
+  handleOnIsStudentPanelShow = () => {
+    this.isShowStudentPanel = !this.isShowStudentPanel;
   }
 }

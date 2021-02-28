@@ -56,7 +56,7 @@
   </div>
 
 
-  <!--  Admin page small div to represent student registration form. On click disappear-->
+  <!--  Admin page small div to represent lecturer registration form. On click disappear-->
   <div *ngIf="!isShowLecturerRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card" style="max-width: 600px">
     <span>Lecturer Registration Form
       <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsLecturerRegistrationShow()"></i>
@@ -109,8 +109,17 @@
     </p>
   </div>
 
-  <div class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
-    <h3>Our Lecturers panel</h3>
+  <!--  Admin page small div to represent lecturer panel. On click disappear-->
+  <div *ngIf="!isShowLecturerPanel" class="align-content-center px-3 py-2 mx-auto my-4 card" style="max-width: 600px">
+    <span>Our Lecturer Panel
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsLecturerPanelShow()"></i>
+    </span>
+  </div>
+
+  <div *ngIf="isShowLecturerPanel" class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
+    <h3>Our Lecturers panel
+      <i class="fas fa-times-circle float-right" (click)="handleOnIsLecturerPanelShow()"></i>
+    </h3>
     <div class="card mx-2 my-1" style="max-width: 600px" *ngFor="let lecturer of lecturersList; index as num">
       <div class="row py-1 px-3">
         <div class="col-12 col-md-6">{{lecturer.name}}</div>
@@ -126,9 +135,15 @@
     </div>
   </div>
 
-
-  <div class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
-    <h3>Our Registered Students</h3>
+  <div *ngIf="!isShowStudentPanel" class="align-content-center px-3 py-2 mx-auto my-4 card" style="max-width: 600px">
+    <span>Our Registered Student
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsStudentPanelShow()"></i>
+    </span>
+  </div>
+  <div *ngIf="isShowStudentPanel" class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
+    <h3>Our Registered Students
+      <i class="fas fa-times-circle float-right" (click)="handleOnIsStudentPanelShow()"></i>
+    </h3>
     <div class="card mx-2 my-1" style="max-width: 600px" *ngFor="let student of studentList; index as num">
       <div class="row py-1 px-3">
         <div class="col-12 col-md-6">{{student.name}}</div>

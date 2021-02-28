@@ -25,10 +25,16 @@ export class AdminPageComponent implements OnInit {
   studentBirthday: string;
   studentPassword: string;
 
+  lecturersList: any;
+  studentList: any;
+
+
   constructor(private studentService: StudentService, private lecturerService: LecturerService) {
   }
 
   ngOnInit(): void {
+    this.loadAllLecturers();
+    this.loadAllStudents();
   }
 
   saveLecturer = () => {
@@ -88,4 +94,50 @@ export class AdminPageComponent implements OnInit {
     this.lecturerBirthday = '';
     this.lecturerPassword = '';
   };
+
+  loadAllLecturers = () => {
+    this.lecturerService.getAllLecturers().subscribe(response => {
+      this.lecturersList = response;
+    }, error => {
+      console.log(error);
+    });
+  };
+
+  loadAllStudents = () => {
+    this.studentService.getAllStudents().subscribe(response => {
+      this.studentList = response;
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  deleteLecturer = (id: string) => {
+    if (confirm('Are You sure?')) {
+      this.lecturerService.deleteLecturer(id).subscribe(() => {
+        this.loadAllLecturers();
+        alert('Deleted!');
+      }, error => {
+        console.log(error);
+      });
+    }
+  }
+
+  deleteStudent = (id: string) => {
+    if (confirm('Are You sure?')) {
+      this.studentService.deleteStudent(id).subscribe(() => {
+        this.loadAllStudents();
+        alert('Deleted!');
+      }, error => {
+        console.log(error);
+      });
+    }
+  }
+
+  updateLecturer = (id: string) => {
+
+  }
+
+  updateStudent = (id: string) => {
+
+  }
 }

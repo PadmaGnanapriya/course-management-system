@@ -16,6 +16,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllTimetable();
+    this.loadAllLecturers();
   }
 
   loadAllTimetable = () => {

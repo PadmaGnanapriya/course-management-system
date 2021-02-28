@@ -1,4 +1,5 @@
 <div>
+
   <div class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
     <h3>Student Registration</h3>
     <div class="mb-3">
@@ -6,94 +7,83 @@
       <input [(ngModel)]="studentId" type="text" class="form-control" id="student_id"
              placeholder="please enter Id">
     </div>
-
     <div class="mb-3">
       <label for="student_name" class="form-label">Name</label>
       <input [(ngModel)]="studentName" type="text" class="form-control" id="student_name"
              placeholder="please enter name">
     </div>
-
     <div class="mb-3">
       <label for="student_contact" class="form-label">Contact</label>
       <input [(ngModel)]="studentContact" type="text" class="form-control" id="student_contact"
              placeholder="please enter contact No">
     </div>
-
     <div class="mb-3">
       <label for="student_nic" class="form-label">NIC</label>
       <input [(ngModel)]="studentNic" type="text" class="form-control" id="student_nic"
              placeholder="please enter nic">
     </div>
-
     <div class="mb-3">
       <label for="student_email" class="form-label">Email</label>
       <input [(ngModel)]="studentEmail" type="text" class="form-control" id="student_email"
              placeholder="Please enter email">
     </div>
-
     <div class="mb-3">
       <label for="student_birthday" class="form-label">Birthday</label>
-      <input [(ngModel)]="studentBirthday" type="number" class="form-control" id="student_birthday"
+      <input [(ngModel)]="studentBirthday" type="text" class="form-control" id="student_birthday"
              placeholder="Please enter birthday">
     </div>
-
     <div class="mb-3">
       <label for="student_password" class="form-label">Password</label>
       <input [(ngModel)]="studentPassword" type="text" class="form-control" id="student_password"
              placeholder="please enter password">
     </div>
-
-    <p style="text-align: right">
-      <button class="btn btn-primary btn-sm px-5 py-3" (click)="saveStudent()">Save student</button>
+    <p>
+      <button class="btn btn-danger btn-sm px-5 py-2 mr-2" (click)="handleClearStudent()">Clear</button>
+      <button class="btn btn-primary btn-sm px-4 py-2" (click)="saveStudent()">Save student</button>
     </p>
   </div>
 
   <div class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
-    <h3>lecturer Registration</h3>
+    <h3>Lecturer Registration</h3>
     <div class="mb-3">
       <label for="lecturer_id" class="form-label">Id</label>
       <input [(ngModel)]="lecturerId" type="text" class="form-control" id="lecturer_id"
              placeholder="please enter Id">
     </div>
-
     <div class="mb-3">
       <label for="lecturer_name" class="form-label">Name</label>
       <input [(ngModel)]="lecturerName" type="text" class="form-control" id="lecturer_name"
              placeholder="please enter name">
     </div>
-
     <div class="mb-3">
       <label for="lecturer_contact" class="form-label">Contact</label>
       <input [(ngModel)]="lecturerContact" type="text" class="form-control" id="lecturer_contact"
              placeholder="please enter contact No">
     </div>
-
     <div class="mb-3">
       <label for="lecturer_nic" class="form-label">NIC</label>
       <input [(ngModel)]="lecturerNic" type="text" class="form-control" id="lecturer_nic"
              placeholder="please enter nic">
     </div>
-
     <div class="mb-3">
       <label for="lecturer_email" class="form-label">Email</label>
       <input [(ngModel)]="lecturerEmail" type="text" class="form-control" id="lecturer_email"
              placeholder="Please enter email">
     </div>
-
     <div class="mb-3">
       <label for="lecturer_birthday" class="form-label">Birthday</label>
       <input [(ngModel)]="lecturerBirthday" type="text" class="form-control" id="lecturer_birthday"
              placeholder="Please enter birthday">
     </div>
-
     <div class="mb-3">
       <label for="lecturer_password" class="form-label">Password</label>
       <input [(ngModel)]="lecturerPassword" type="text" class="form-control" id="lecturer_password"
              placeholder="please enter password">
     </div>
-
-    <p style="text-align: right">
-      <button class="btn btn-primary btn-sm px-5 py-3" (click)="saveLecturer()">Save lecturer</button>
+    <p>
+      <button class="btn btn-danger btn-sm px-5 py-2 mr-2" (click)="handleClearLecturer()">Clear</button>
+      <button class="btn btn-primary btn-sm px-4 py-2" (click)="saveLecturer()">Save lecturer</button>
     </p>
   </div>
+
 </div>

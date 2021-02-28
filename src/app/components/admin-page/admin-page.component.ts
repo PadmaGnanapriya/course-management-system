@@ -31,7 +31,6 @@ export class AdminPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   saveLecturer = () => {
     const lecturer = new LecturerDTO(
       this.lecturerId,
@@ -44,11 +43,12 @@ export class AdminPageComponent implements OnInit {
     );
 
     this.lecturerService.addLecturer(lecturer).subscribe(resp => {
-      alert(resp);
+      alert('Add successful');
+      this.handleClearLecturer();
     }, error => {
       console.log(error);
     });
-  }
+  };
 
   saveStudent = () => {
     const student = new StudentDTO(
@@ -62,9 +62,30 @@ export class AdminPageComponent implements OnInit {
     );
 
     this.studentService.addStudent(student).subscribe(resp => {
-      alert(resp.message);
+      alert('Add successful');
+      this.handleClearStudent();
     }, error => {
       console.log(error);
     });
-  }
+  };
+
+  handleClearStudent = () => {
+    this.studentId = '';
+    this.studentName = '';
+    this.studentContact = '';
+    this.studentNic = '';
+    this.studentEmail = '';
+    this.studentBirthday = '';
+    this.studentPassword = '';
+  };
+
+  handleClearLecturer = () => {
+    this.lecturerId = '';
+    this.lecturerName = '';
+    this.lecturerContact = '';
+    this.lecturerNic = '';
+    this.lecturerEmail = '';
+    this.lecturerBirthday = '';
+    this.lecturerPassword = '';
+  };
 }

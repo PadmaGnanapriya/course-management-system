@@ -1,7 +1,16 @@
 <div>
 
-  <div class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
-    <h3>Student Registration</h3>
+  <!--  Admin page small div to represent student registration form. On click disappear-->
+  <div *ngIf="!isShowStudentRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card"
+       style="max-width: 600px" (click)="handleOnIsStudentRegistrationShow()">
+    Student Registration Form
+  </div>
+
+  <div *ngIf="isShowStudentRegistration" class="align-content-center px-3 py-5 mx-auto my-4 card"
+       style="max-width: 600px">
+    <h3>Student Registration     <i class="fas fa-times-circle float-right" (click)="handleOnIsStudentRegistrationShow()"></i>
+    </h3>
+
     <div class="mb-3">
       <label for="student_id" class="form-label">Id</label>
       <input [(ngModel)]="studentId" type="text" class="form-control" id="student_id"
@@ -43,7 +52,14 @@
     </p>
   </div>
 
-  <div class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
+
+  <!--  Admin page small div to represent student registration form. On click disappear-->
+  <div *ngIf="!isShowLecturerRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card"
+       style="max-width: 600px" (click)="handleOnIsLecturerRegistrationShow()">
+    Lecturer Registration Form
+  </div>
+
+  <div *ngIf="isShowLecturerRegistration" class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
     <h3>Lecturer Registration</h3>
     <div class="mb-3">
       <label for="lecturer_id" class="form-label">Id</label>

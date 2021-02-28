@@ -27,6 +27,9 @@ export class AdminPageComponent implements OnInit {
 
   lecturersList: any;
   studentList: any;
+  isShowStudentRegistration: boolean;
+  isShowLecturerRegistration: boolean;
+
 
 
   constructor(private studentService: StudentService, private lecturerService: LecturerService) {
@@ -35,6 +38,8 @@ export class AdminPageComponent implements OnInit {
   ngOnInit(): void {
     this.loadAllLecturers();
     this.loadAllStudents();
+    this.isShowStudentRegistration = false;
+    this.isShowLecturerRegistration = false;
   }
 
   saveLecturer = () => {
@@ -139,5 +144,14 @@ export class AdminPageComponent implements OnInit {
 
   updateStudent = (id: string) => {
 
+  }
+
+  handleOnIsStudentRegistrationShow = () => {
+    this.isShowStudentRegistration = !this.isShowStudentRegistration;
+  }
+
+
+  handleOnIsLecturerRegistrationShow = () => {
+    this.isShowLecturerRegistration = !this.isShowLecturerRegistration;
   }
 }

@@ -1,1 +1,45 @@
-<p>course-list works!</p>
+<div *ngIf="!isShowCoursePanel" class="py-2 my-4 px-3 card">
+    <span>Our Course units
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsCoursePanelShow()"></i>
+    </span>
+</div>
+
+<div *ngIf="isShowCoursePanel" class="py-4 my-4 px-3 card">
+  <h3>Our Course units
+    <i class="fas fa-times-circle float-right" (click)="handleOnIsCoursePanelShow()"></i>
+  </h3>
+  <div class="card mx-2 my-1" style="max-width: 600px" *ngFor="let course of coursesList; index as num">
+    <div class="row py-1 px-3">
+      <div class="col-12 col-md-6">{{course.id}}</div>
+      <div class="col-6 col-md-3">
+        <button class="btn btn-danger btn-sm px-4 py-2 mr-2" (click)="deleteCourse(course.id)">Delete</button>
+      </div>
+      <div class="col-6 col-md-3">
+        <button class="btn btn-warning btn-sm text-left px-4 py-2 mr-2" data-toggle="modal" [attr.data-target]="'#' + course.id">
+          Update
+        </button>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="{{course.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel0" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel0">Student data Update form</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{course.id}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal End-->
+  </div>
+</div>

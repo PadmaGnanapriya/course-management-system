@@ -39,8 +39,7 @@ export class CourseService {
   }
 
   public deleteCourse(id: string): Observable<any> {
-    return this.http.delete(this.baseUrl + '/delete-course',
-      {headers: {id}});
+    return this.http.delete(this.baseUrl + `/delete-course/${id}`);
   }
 
 }

@@ -39,8 +39,7 @@ export class CourseEnrolledService {
   }
 
   public deleteCourseEnrolled(id: string): Observable<any> {
-    return this.http.delete(this.baseUrl + '/delete-course-enrolled',
-      {headers: {id}});
+    return this.http.delete(this.baseUrl + `/delete-course-enrolled/${id}`);
   }
 
 }

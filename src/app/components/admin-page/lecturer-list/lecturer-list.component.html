@@ -1,10 +1,10 @@
-<div *ngIf="!isShowLecturerPanel" class="align-content-center px-3 py-2 mx-auto my-4 card" style="max-width: 600px">
+<div *ngIf="!isShowLecturerPanel" class="py-2 my-4 px-3 card">
     <span>Our Lecturer Panel
       <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsLecturerPanelShow()"></i>
     </span>
 </div>
 
-<div *ngIf="isShowLecturerPanel" class="align-content-center px-3 py-5 mx-auto my-4 card" style="max-width: 600px">
+<div *ngIf="isShowLecturerPanel" class="py-4 my-4 px-3 card">
   <h3>Our Lecturers panel
     <i class="fas fa-times-circle float-right" (click)="handleOnIsLecturerPanelShow()"></i>
   </h3>

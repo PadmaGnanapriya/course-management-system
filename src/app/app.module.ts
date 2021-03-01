@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { BarchartComponent } from './components/admin-page/barchart/barchart.component';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -37,14 +39,18 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     CoursePageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    BarchartComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

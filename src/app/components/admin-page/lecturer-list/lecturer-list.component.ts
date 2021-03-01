@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LecturerService} from '../../../services/lecturer.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 
 @Component({
   selector: 'app-lecturer-list',
@@ -29,14 +31,41 @@ export class LecturerListComponent implements OnInit {
   }
 
   deleteLecturer = (id: string) => {
-    if (confirm('Are You sure?')) {
-      this.lecturerService.deleteLecturer(id).subscribe(() => {
-        this.loadAllLecturers();
-        alert('Deleted!');
-      }, error => {
-        console.log(error);
-      });
-    }
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.lecturerService.deleteLecturer(id).subscribe(() => this.loadAllLecturers());
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your record has been deleted.',
+          'success'
+        );
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your record is safe :)',
+          'error'
+        );
+      }
+    });
   }
 
   updateLecturer = (id: string) => {

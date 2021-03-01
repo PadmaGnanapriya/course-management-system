@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import LecturerDTO from '../../../dto/LecturerDTO';
 import {LecturerService} from '../../../services/lecturer.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-lecturer-register-form',
@@ -49,7 +50,13 @@ export class LecturerRegisterFormComponent implements OnInit {
     );
 
     this.lecturerService.addLecturer(lecturer).subscribe(resp => {
-      alert('Add successful');
+      Swal.fire({
+        position: 'centered',
+        icon: 'success',
+        title: 'New record has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.handleClearLecturer();
     }, error => {
       console.log(error);

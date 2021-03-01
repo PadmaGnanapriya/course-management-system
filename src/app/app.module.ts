@@ -17,6 +17,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { BarchartComponent } from './components/admin-page/barchart/barchart.component';
 import {NgxEchartsModule} from 'ngx-echarts';
+import { CourseRegisterFormComponent } from './components/admin-page/course-register-form/course-register-form.component';
+import { StudentRegisterFormComponent } from './components/admin-page/student-register-form/student-register-form.component';
+import { LecturerRegisterFormComponent } from './components/admin-page/lecturer-register-form/lecturer-register-form.component';
+import { LecturerListComponent } from './components/admin-page/lecturer-list/lecturer-list.component';
+import { StudentListComponent } from './components/admin-page/student-list/student-list.component';
+import { CourseListComponent } from './components/admin-page/course-list/course-list.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -40,7 +46,13 @@ const routes: Routes = [
     FooterComponent,
     CoursePageComponent,
     AdminPageComponent,
-    BarchartComponent
+    BarchartComponent,
+    CourseRegisterFormComponent,
+    StudentRegisterFormComponent,
+    LecturerRegisterFormComponent,
+    LecturerListComponent,
+    StudentListComponent,
+    CourseListComponent
   ],
   imports: [
     BrowserModule,

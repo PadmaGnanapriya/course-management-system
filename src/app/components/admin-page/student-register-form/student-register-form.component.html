@@ -1,0 +1,53 @@
+<div *ngIf="!isShowStudentRegistration" class="align-content-center px-3 py-2 mx-auto my-4 card" style="max-width: 600px">
+    <span>Student Registration Form
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsStudentRegistrationShow()"></i>
+    </span>
+</div>
+
+<div *ngIf="isShowStudentRegistration" class="align-content-center px-3 py-5 mx-auto my-4 card"
+     style="max-width: 600px">
+  <h3>
+    Student Registration
+    <i class="fas fa-times-circle float-right" (click)="handleOnIsStudentRegistrationShow()"></i>
+  </h3>
+
+  <div class="mb-3">
+    <label for="student_id" class="form-label">Id</label>
+    <input [(ngModel)]="studentId" type="text" class="form-control" id="student_id"
+           placeholder="please enter Id">
+  </div>
+  <div class="mb-3">
+    <label for="student_name" class="form-label">Name</label>
+    <input [(ngModel)]="studentName" type="text" class="form-control" id="student_name"
+           placeholder="please enter name">
+  </div>
+  <div class="mb-3">
+    <label for="student_contact" class="form-label">Contact</label>
+    <input [(ngModel)]="studentContact" type="text" class="form-control" id="student_contact"
+           placeholder="please enter contact No">
+  </div>
+  <div class="mb-3">
+    <label for="student_nic" class="form-label">NIC</label>
+    <input [(ngModel)]="studentNic" type="text" class="form-control" id="student_nic"
+           placeholder="please enter nic">
+  </div>
+  <div class="mb-3">
+    <label for="student_email" class="form-label">Email</label>
+    <input [(ngModel)]="studentEmail" type="text" class="form-control" id="student_email"
+           placeholder="Please enter email">
+  </div>
+  <div class="mb-3">
+    <label for="student_birthday" class="form-label">Birthday</label>
+    <input [(ngModel)]="studentBirthday" type="text" class="form-control" id="student_birthday"
+           placeholder="Please enter birthday">
+  </div>
+  <div class="mb-3">
+    <label for="student_password" class="form-label">Password</label>
+    <input [(ngModel)]="studentPassword" type="text" class="form-control" id="student_password"
+           placeholder="please enter password">
+  </div>
+  <p>
+    <button class="btn btn-danger btn-sm px-5 py-2 mr-2" (click)="handleClearStudent()">Clear</button>
+    <button class="btn btn-primary btn-sm px-4 py-2" (click)="saveStudent()">Save student</button>
+  </p>
+</div>

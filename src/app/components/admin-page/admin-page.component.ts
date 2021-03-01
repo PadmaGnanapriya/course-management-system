@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import StudentDTO from '../../dto/StudentDTO';
-import {StudentService} from '../../services/student.service';
-import LecturerDTO from '../../dto/LecturerDTO';
-import {LecturerService} from '../../services/lecturer.service';
+
 
 @Component({
   selector: 'app-admin-page',
@@ -10,159 +7,12 @@ import {LecturerService} from '../../services/lecturer.service';
   styleUrls: ['./admin-page.component.css']
 })
 export class AdminPageComponent implements OnInit {
-  lecturerId: string;
-  lecturerName: string;
-  lecturerContact: string;
-  lecturerNic: string;
-  lecturerEmail: string;
-  lecturerBirthday: string;
-  lecturerPassword: string;
-  studentId: string;
-  studentName: string;
-  studentContact: string;
-  studentNic: string;
-  studentEmail: string;
-  studentBirthday: string;
-  studentPassword: string;
 
-  lecturersList: any;
-  studentList: any;
-  isShowStudentRegistration: boolean;
-  isShowLecturerRegistration: boolean;
-  isShowLecturerPanel: boolean;
-  isShowStudentPanel: boolean;
-
-
-
-  constructor(private studentService: StudentService, private lecturerService: LecturerService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.loadAllLecturers();
-    this.loadAllStudents();
-    this.isShowStudentRegistration = false;
-    this.isShowLecturerRegistration = false;
-    this.isShowLecturerPanel = false;
-    this.isShowStudentPanel = false;
-  }
-
-  saveLecturer = () => {
-    const lecturer = new LecturerDTO(
-      this.lecturerId,
-      this.lecturerName,
-      this.lecturerContact,
-      this.lecturerNic,
-      this.lecturerEmail,
-      this.lecturerBirthday,
-      this.lecturerPassword,
-    );
-
-    this.lecturerService.addLecturer(lecturer).subscribe(resp => {
-      alert('Add successful');
-      this.handleClearLecturer();
-    }, error => {
-      console.log(error);
-    });
-  };
-
-  saveStudent = () => {
-    const student = new StudentDTO(
-      this.studentId,
-      this.studentName,
-      this.studentContact,
-      this.studentNic,
-      this.studentEmail,
-      this.studentBirthday,
-      this.studentPassword,
-    );
-
-    this.studentService.addStudent(student).subscribe(resp => {
-      alert('Add successful');
-      this.handleClearStudent();
-    }, error => {
-      console.log(error);
-    });
-  };
-
-  handleClearStudent = () => {
-    this.studentId = '';
-    this.studentName = '';
-    this.studentContact = '';
-    this.studentNic = '';
-    this.studentEmail = '';
-    this.studentBirthday = '';
-    this.studentPassword = '';
-  };
-
-  handleClearLecturer = () => {
-    this.lecturerId = '';
-    this.lecturerName = '';
-    this.lecturerContact = '';
-    this.lecturerNic = '';
-    this.lecturerEmail = '';
-    this.lecturerBirthday = '';
-    this.lecturerPassword = '';
-  };
-
-  loadAllLecturers = () => {
-    this.lecturerService.getAllLecturers().subscribe(response => {
-      this.lecturersList = response;
-    }, error => {
-      console.log(error);
-    });
-  };
-
-  loadAllStudents = () => {
-    this.studentService.getAllStudents().subscribe(response => {
-      this.studentList = response;
-    }, error => {
-      console.log(error);
-    });
-  }
-
-  deleteLecturer = (id: string) => {
-    if (confirm('Are You sure?')) {
-      this.lecturerService.deleteLecturer(id).subscribe(() => {
-        this.loadAllLecturers();
-        alert('Deleted!');
-      }, error => {
-        console.log(error);
-      });
-    }
-  }
-
-  deleteStudent = (id: string) => {
-    if (confirm('Are You sure?')) {
-      this.studentService.deleteStudent(id).subscribe(() => {
-        this.loadAllStudents();
-        alert('Deleted!');
-      }, error => {
-        console.log(error);
-      });
-    }
-  }
-
-  updateLecturer = (id: string) => {
 
   }
 
-  updateStudent = (id: string) => {
-
-  }
-
-  handleOnIsStudentRegistrationShow = () => {
-    this.isShowStudentRegistration = !this.isShowStudentRegistration;
-  }
-
-  handleOnIsLecturerRegistrationShow = () => {
-    this.isShowLecturerRegistration = !this.isShowLecturerRegistration;
-  }
-
-  handleOnIsLecturerPanelShow = () => {
-    this.isShowLecturerPanel = !this.isShowLecturerPanel;
-  }
-
-  handleOnIsStudentPanelShow = () => {
-    this.isShowStudentPanel = !this.isShowStudentPanel;
-  }
 }

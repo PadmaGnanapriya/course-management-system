@@ -1,12 +1,15 @@
-<div echarts [options]="options" class="demo-chart"
-     (chartInit)="onChartEvent($event, 'chartInit')"
-     (chartClick)="onChartEvent($event, 'chartClick')"
-     (chartDblClick)="onChartEvent($event, 'chartDblClick')"
-     (chartMouseDown)="onChartEvent($event, 'chartMouseDown')"
-     (chartMouseUp)="onChartEvent($event, 'chartMouseUp')"
-     (chartMouseOver)="onChartEvent($event, 'chartMouseOver')"
-     (chartMouseOut)="onChartEvent($event, 'chartMouseOut')"
-     (chartGlobalOut)="onChartEvent($event, 'chartGlobalOut')"
-     (chartContextMenu)="onChartEvent($event, 'chartContextMenu')"
-     (chartDataZoom)="onChartEvent($event, 'chartDataZoom')">
+<div nz-row  style="max-width: 600px" class="align-content-center px-3 py-2 mx-auto my-4 card" >
+
+  <div *ngIf="!isShowChart">
+    <span>Student Registration Form
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsBarChartShow()"></i>
+    </span>
+  </div>
+
+  <div *ngIf="isShowChart" nz-col nzSpan="12">
+    <h3>Student Enrollment count chart
+      <i class="fas fa-times-circle float-right" (click)="handleOnIsBarChartShow()"></i>
+    </h3>
+    <div id="chart1" echarts [options]="options" theme="macaroons" class="demo-chart"></div>
+  </div>
 </div>

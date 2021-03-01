@@ -1,142 +1,64 @@
-import {Component, OnInit} from '@angular/core';
-import LinearGradient from 'zrender/lib/graphic/LinearGradient';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { getInstanceByDom, connect } from 'echarts';
 
 @Component({
   selector: 'app-barchart',
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.css']
 })
-export class BarchartComponent implements  OnInit {
-  options: any;
+export class BarchartComponent implements AfterViewInit {
+  isShowChart: boolean;
 
+  options = {
+    color: ['#3398DB'],
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow',
+      },
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true,
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: ['Networking', 'Java', 'PMAT', 'Database\n Design', 'Interactive\n application', 'Requirement\n Engineering', 'Management\n for SE'],
+        axisTick: {
+          alignWithLabel: true,
+        },
+      },
+    ],
+    yAxis: [
+      {
+        type: 'value',
+      },
+    ],
+    series: [
+      {
+        name: 'Counters',
+        type: 'bar',
+        barWidth: '60%',
+        data: [40, 32, 20, 33, 39, 30, 22],
+      },
+    ],
+  };
   constructor() {}
 
-  ngOnInit(): void {
-    const dataAxis = [
-      'A',
-      'B',
-      'C',
-      'D',
-      'E',
-      'F',
-      'G',
-      'H',
-      'I',
-      'J',
-      'K',
-      'L',
-      'M',
-      'N',
-      'O',
-      'P',
-      'Q',
-      'R',
-      'S',
-      'T',
-    ];
-    const data = [
-      220,
-      182,
-      191,
-      234,
-      290,
-      330,
-      310,
-      123,
-      442,
-      321,
-      90,
-      149,
-      210,
-      122,
-      133,
-      334,
-      198,
-      123,
-      125,
-      220,
-    ];
-    const yMax = 500;
-    const dataShadow = [];
+  ngAfterViewInit = () => {
+    setTimeout(() => {
+      const chartElement1 = document.getElementById('chart1');
+      const chart1 = getInstanceByDom(chartElement1);
+      connect([chart1]);
+    });
 
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < data.length; i++) {
-      dataShadow.push(yMax);
-    }
-
-    this.options = {
-      title: {
-        text: 'Check Console for Events',
-      },
-      xAxis: {
-        data: dataAxis,
-        axisLabel: {
-          inside: true,
-          color: '#fff',
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-        z: 10,
-      },
-      yAxis: {
-        axisLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLabel: {
-          textStyle: {
-            color: '#999',
-          },
-        },
-      },
-      dataZoom: [
-        {
-          type: 'inside',
-        },
-      ],
-      series: [
-        {
-          // For shadow
-          type: 'bar',
-          itemStyle: {
-            color: 'rgba(0,0,0,0.05)'
-          },
-          barGap: '-100%',
-          barCategoryGap: '40%',
-          data: dataShadow,
-          animation: false,
-        },
-        {
-          type: 'bar',
-          itemStyle: {
-            color: new LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: '#83bff6' },
-              { offset: 0.5, color: '#188df0' },
-              { offset: 1, color: '#188df0' },
-            ]),
-          },
-          emphasis: {
-            itemStyle: {
-              color: new LinearGradient(0, 0, 0, 1, [
-                { offset: 0, color: '#2378f7' },
-                { offset: 0.7, color: '#2378f7' },
-                { offset: 1, color: '#83bff6' },
-              ]),
-            }
-          },
-          data,
-        },
-      ],
-    };
+    this.isShowChart = false;
   }
 
-  onChartEvent(event: any, type: string) {
-    console.log('chart event:', type, event);
+  handleOnIsBarChartShow = () => {
+    this.isShowChart = !this.isShowChart;
   }
 }

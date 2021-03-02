@@ -23,6 +23,7 @@ import { LecturerRegisterFormComponent } from './components/admin-page/lecturer-
 import { LecturerListComponent } from './components/admin-page/lecturer-list/lecturer-list.component';
 import { StudentListComponent } from './components/admin-page/student-list/student-list.component';
 import { CourseListComponent } from './components/admin-page/course-list/course-list.component';
+import { CourseEnrollmentFormComponent } from './components/admin-page/course-enrollment-form/course-enrollment-form.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -52,7 +53,8 @@ const routes: Routes = [
     LecturerRegisterFormComponent,
     LecturerListComponent,
     StudentListComponent,
-    CourseListComponent
+    CourseListComponent,
+    CourseEnrollmentFormComponent
   ],
   imports: [
     BrowserModule,

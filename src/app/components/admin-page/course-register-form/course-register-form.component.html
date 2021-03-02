@@ -17,12 +17,18 @@
              placeholder="Please Enter Id">
       <span *ngIf="id.invalid && id.touched" class="error">Id can not be null</span>
     </div>
-    <div class="form-group">
-      <label for="lecturerId">Lecturer Id</label>
-      <input id="lecturerId" required #lecturerId="ngModel" type="text" ngModel class="form-control" name="lecturerId"
-             placeholder="Please Enter Name">
-      <span *ngIf="lecturerId.invalid && lecturerId.touched" class="error">Name can not be null.</span>
-    </div>
+
+
+      <label for="lecturerId">Lecturer Name</label>
+    <select required formControlName="orders" id="lecturerId" name="lecturerId" style="width: 100%"
+            ngModel="selectedOption" ng-options="lecturer.id as lecturer.name for lecturer of lecturers">
+      <option *ngFor="let lecturer of lecturers; let i = index" [value]="lecturers[i].id">
+        {{lecturers[i].name}}
+      </option>
+    </select>
+
+
+
     <div class="form-group">
       <label for="referenceBook">Reference</label>
       <input id="referenceBook" required #referenceBook="ngModel" type="text" ngModel class="form-control" name="referenceBook"

@@ -22,3 +22,9 @@ input.ng-invalid.ng-touched {
   font-size: x-small;
   padding-left: 20px;
 }
+
+select#lecturerId{
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 5px 5px 6px 5px;
+}

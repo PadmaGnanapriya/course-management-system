@@ -1,6 +1,7 @@
-<div *ngIf="!isShowLecturerRegistration" class="py-2 my-4 px-3 card" >
+<div *ngIf="!isShowLecturerRegistration" class="py-2 my-4 px-3 card">
     <span>Lecturer Registration Form
-      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true" (click)="handleOnIsLecturerRegistrationShow()"></i>
+      <i class="fa fa-plus-circle float-right pt-1" aria-hidden="true"
+         (click)="handleOnIsLecturerRegistrationShow()"></i>
     </span>
 </div>
 
@@ -12,42 +13,50 @@
   <form #OurForm="ngForm" (ngSubmit)="onSubmit(OurForm.value)">
     <div class="form-group">
       <label for="id">Id</label>
-      <input id="id" required #id="ngModel" type="text" ngModel class="form-control" name="id" placeholder="Please Enter Id">
+      <input id="id" required #id="ngModel" type="text" ngModel class="form-control" name="id"
+             placeholder="Please Enter Id">
       <span *ngIf="id.invalid && id.touched" class="error">Id can not be null</span>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input id="name" required #name="ngModel" type="text" ngModel class="form-control" name="name" placeholder="Please Enter Name">
+      <input id="name" required #name="ngModel" type="text" ngModel class="form-control" name="name"
+             placeholder="Please Enter Name">
       <span *ngIf="name.invalid && name.touched" class="error">Name can not be null</span>
     </div>
     <div class="form-group">
       <label for="contact">Contact Number</label>
-      <input id="contact" required #contact="ngModel" type="text" ngModel class="form-control" name="contact" placeholder="Please Enter Contact No">
-      <span *ngIf="contact.invalid && contact.touched" class="error">Contact can not be null</span>
+      <input id="contact" required #contact="ngModel" type="text" ngModel class="form-control" name="contact"
+             placeholder="Eg:-   +94766328189" pattern="['+'][0-9]{11}">
+      <span *ngIf="contact.invalid && contact.touched" class="error">Contact number pattern is not matched</span>
     </div>
     <div class="form-group">
       <label for="nic">NIC</label>
-      <input id="nic" required #nic="ngModel" type="text" ngModel class="form-control" maxlength="11" name="nic" placeholder="Please Enter NIC number">
+      <input id="nic" required #nic="ngModel" type="text" ngModel class="form-control" maxlength="11" name="nic"
+             placeholder="Please Enter NIC number">
       <span *ngIf="nic.invalid && nic.touched" class="error">NIC can not be null</span>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input id="email" required #email="ngModel" type="email" ngModel class="form-control" name="email" placeholder="Please Enter Email Address">
+      <input id="email" required #email="ngModel" type="email" ngModel class="form-control" name="email"
+             placeholder="Please Enter Email Address" pattern="[a-z0-9'.']{1,}['@'][a-z0-9]{1,}['.'][a-z0-9]{1,}">
       <span *ngIf="email.invalid && email.touched" class="error">Email can not be null</span>
     </div>
     <div class="form-group">
       <label for="birthday">Birthday</label>
-      <input id="birthday" required #birthday="ngModel" type="text" ngModel class="form-control" name="birthday" placeholder="Please Enter B'day">
+      <input id="birthday" required #birthday="ngModel" type="date" ngModel class="form-control" name="birthday"
+             placeholder="Please Enter B'day">
       <span *ngIf="birthday.invalid && birthday.touched" class="error">Birthday can not be null</span>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input id="password" required #password="ngModel" type="password" ngModel class="form-control" name="password" placeholder="Please Enter Name">
+      <input id="password" required #password="ngModel" type="password" ngModel class="form-control" name="password"
+             placeholder="Please Enter Name">
       <span *ngIf="password.invalid && password.touched" class="error">Password can not be null</span>
     </div>
     <p>
       <button class="btn btn-danger btn-sm px-5 py-2 mr-2" (click)="handleClearLecturer()">Clear</button>
-      <button class="btn btn-success btn-sm px-4 py-2" type="submit" [disabled]="OurForm.form.invalid">Save lecturer</button>
+      <button class="btn btn-success btn-sm px-4 py-2" type="submit" [disabled]="OurForm.form.invalid">Save lecturer
+      </button>
     </p>
   </form>
 </div>

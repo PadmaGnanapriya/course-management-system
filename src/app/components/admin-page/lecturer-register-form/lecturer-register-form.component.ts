@@ -9,25 +9,18 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
   styleUrls: ['./lecturer-register-form.component.css']
 })
 export class LecturerRegisterFormComponent implements OnInit {
-  id: string;
-  name: string;
-  contact: string;
-  nic: string;
-  email: string;
-  birthday: string;
-  password: string;
-
-  isShowLecturerRegistration: boolean;
 
   constructor(private lecturerService: LecturerService) { }
+  isShowLecturerRegistration: boolean;
 
   ngOnInit(): void {
     this.isShowLecturerRegistration = false;
   }
 
   handleClearLecturer = () => {
-    // this.lecturerId = '';
-
+    Array.from(document.querySelectorAll('input')).forEach(
+      input => (input.value = '')
+    );
   }
   handleOnIsLecturerRegistrationShow = () => {
     this.isShowLecturerRegistration = !this.isShowLecturerRegistration;

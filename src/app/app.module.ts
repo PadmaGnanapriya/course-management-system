@@ -12,7 +12,7 @@ import {FooterComponent} from './layout/footer/footer.component';
 import {CoursePageComponent} from './layout/course-page/course-page.component';
 import {RouterModule, Routes} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { BarchartComponent } from './components/admin-page/barchart/barchart.component';
@@ -62,7 +62,8 @@ const routes: Routes = [
     FormsModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

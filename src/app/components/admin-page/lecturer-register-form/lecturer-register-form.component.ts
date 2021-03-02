@@ -9,13 +9,13 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
   styleUrls: ['./lecturer-register-form.component.css']
 })
 export class LecturerRegisterFormComponent implements OnInit {
-  lecturerId: string;
-  lecturerName: string;
-  lecturerContact: string;
-  lecturerNic: string;
-  lecturerEmail: string;
-  lecturerBirthday: string;
-  lecturerPassword: string;
+  id: string;
+  name: string;
+  contact: string;
+  nic: string;
+  email: string;
+  birthday: string;
+  password: string;
 
   isShowLecturerRegistration: boolean;
 
@@ -26,32 +26,18 @@ export class LecturerRegisterFormComponent implements OnInit {
   }
 
   handleClearLecturer = () => {
-    this.lecturerId = '';
-    this.lecturerName = '';
-    this.lecturerContact = '';
-    this.lecturerNic = '';
-    this.lecturerEmail = '';
-    this.lecturerBirthday = '';
-    this.lecturerPassword = '';
+    // this.lecturerId = '';
+
   }
   handleOnIsLecturerRegistrationShow = () => {
     this.isShowLecturerRegistration = !this.isShowLecturerRegistration;
   }
 
-  saveLecturer = () => {
-    const lecturer = new LecturerDTO(
-      this.lecturerId,
-      this.lecturerName,
-      this.lecturerContact,
-      this.lecturerNic,
-      this.lecturerEmail,
-      this.lecturerBirthday,
-      this.lecturerPassword,
-    );
+  onSubmit = (value: LecturerDTO) => {
 
-    this.lecturerService.addLecturer(lecturer).subscribe(resp => {
+    this.lecturerService.addLecturer(value).subscribe(resp => {
       Swal.fire({
-        position: 'centered',
+        position: 'center',
         icon: 'success',
         title: 'New record has been saved',
         showConfirmButton: false,
@@ -62,6 +48,4 @@ export class LecturerRegisterFormComponent implements OnInit {
       console.log(error);
     });
   }
-
-
 }

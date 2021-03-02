@@ -9,43 +9,48 @@
     Lecturer Registration
     <i class="fas fa-times-circle float-right" (click)="handleOnIsLecturerRegistrationShow()"></i>
   </h3>
-  <div class="mb-3">
-    <label for="lecturer_id" class="form-label">Id</label>
-    <input [(ngModel)]="lecturerId" type="text" class="form-control" id="lecturer_id"
-           placeholder="please enter Id">
-  </div>
-  <div class="mb-3">
-    <label for="lecturer_name" class="form-label">Name</label>
-    <input [(ngModel)]="lecturerName" type="text" class="form-control" id="lecturer_name"
-           placeholder="please enter name">
-  </div>
-  <div class="mb-3">
-    <label for="lecturer_contact" class="form-label">Contact</label>
-    <input [(ngModel)]="lecturerContact" type="text" class="form-control" id="lecturer_contact"
-           placeholder="please enter contact No">
-  </div>
-  <div class="mb-3">
-    <label for="lecturer_nic" class="form-label">NIC</label>
-    <input [(ngModel)]="lecturerNic" type="text" class="form-control" id="lecturer_nic"
-           placeholder="please enter nic">
-  </div>
-  <div class="mb-3">
-    <label for="lecturer_email" class="form-label">Email</label>
-    <input [(ngModel)]="lecturerEmail" type="text" class="form-control" id="lecturer_email"
-           placeholder="Please enter email">
-  </div>
-  <div class="mb-3">
-    <label for="lecturer_birthday" class="form-label">Birthday</label>
-    <input [(ngModel)]="lecturerBirthday" type="text" class="form-control" id="lecturer_birthday"
-           placeholder="Please enter birthday">
-  </div>
-  <div class="mb-3">
-    <label for="lecturer_password" class="form-label">Password</label>
-    <input [(ngModel)]="lecturerPassword" type="text" class="form-control" id="lecturer_password"
-           placeholder="please enter password">
-  </div>
-  <p>
-    <button class="btn btn-danger btn-sm px-5 py-2 mr-2" (click)="handleClearLecturer()">Clear</button>
-    <button class="btn btn-primary btn-sm px-4 py-2" (click)="saveLecturer()">Save lecturer</button>
-  </p>
+  <form #OurForm="ngForm" (ngSubmit)="onSubmit(OurForm.value)">
+    <div class="form-group">
+      <label for="id">Id</label>
+      <input id="id" required #id="ngModel" type="text" ngModel class="form-control" name="id" placeholder="Please Enter Id">
+      <span *ngIf="id.invalid && id.touched" class="error">Id can not be null</span>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" required #name="ngModel" type="text" ngModel class="form-control" name="name" placeholder="Please Enter Name">
+      <span *ngIf="name.invalid && name.touched" class="error">Name can not be null</span>
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact Number</label>
+      <input id="contact" required #contact="ngModel" type="text" ngModel class="form-control" name="contact" placeholder="Please Enter Contact No">
+      <span *ngIf="contact.invalid && contact.touched" class="error">Contact can not be null</span>
+    </div>
+    <div class="form-group">
+      <label for="nic">NIC</label>
+      <input id="nic" required #nic="ngModel" type="text" ngModel class="form-control" maxlength="11" name="nic" placeholder="Please Enter NIC number">
+      <span *ngIf="nic.invalid && nic.touched" class="error">NIC can not be null</span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" required #email="ngModel" type="email" ngModel class="form-control" name="email" placeholder="Please Enter Email Address">
+      <span *ngIf="email.invalid && email.touched" class="error">Email can not be null</span>
+    </div>
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <input id="birthday" required #birthday="ngModel" type="text" ngModel class="form-control" name="birthday" placeholder="Please Enter B'day">
+      <span *ngIf="birthday.invalid && birthday.touched" class="error">Birthday can not be null</span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" required #password="ngModel" type="password" ngModel class="form-control" name="password" placeholder="Please Enter Name">
+      <span *ngIf="password.invalid && password.touched" class="error">Password can not be null</span>
+    </div>
+    <p>
+      <button class="btn btn-danger btn-sm px-5 py-2 mr-2" (click)="handleClearLecturer()">Clear</button>
+      <button class="btn btn-success btn-sm px-4 py-2" type="submit" [disabled]="OurForm.form.invalid">Save lecturer</button>
+    </p>
+  </form>
 </div>
+
+
+
